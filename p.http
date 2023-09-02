@@ -1,0 +1,10 @@
+POST http://localhost:3001/InsertarAdministrador HTTP/1.1
+content-type: application/json
+
+{   
+    "nombre": "Luis",
+    "email": "lj@gmail.com",
+    "clave": "123456"
+}
+
+
