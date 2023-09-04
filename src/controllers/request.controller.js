@@ -59,7 +59,7 @@ export const InsertRequest = async (req, res) => {
         idCursoMatricular,
       ]
     );
-
+    connection.release();
     if (rows.affectedRows === 1) {
       // La solicitud se insertó correctamente
       sendEmail(
@@ -112,7 +112,7 @@ export const InsertRequestRN = async (req, res) => {
         cursosMXRNString,
       ]
     );
-
+    connection.release();
     if (rows.affectedRows === 1) {
       // La solicitud se insertó correctamente
       sendEmail(
@@ -142,7 +142,7 @@ export const DeleteRequest = async (req, res) => {
       carnet,
       token,
     ]);
-
+    connection.release();
     if (rows.affectedRows === 1) {
       // La solicitud se eliminó correctamente
       res.json({ mensaje: 'Solicitud eliminada correctamente' });
@@ -164,7 +164,7 @@ export const DeleteRequestRN = async (req, res) => {
       'CALL EliminarSolicitudRNYRegistros(?,?)',
       [carnet, token]
     );
-
+    connection.release();
     if (rows.affectedRows === 1) {
       // La solicitud se eliminó correctamente
       res.json({ mensaje: 'Solicitud eliminada correctamente' });
