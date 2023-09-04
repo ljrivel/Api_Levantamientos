@@ -1,5 +1,10 @@
 import { getConnection } from '../ConnectionBD';
 
+// Login function to verify credentials
+// Verifies if the credentials are correct
+// If they are, it returns the user's information
+// If they aren't, it returns an error message
+// need email and password
 export const Login = async (req, res) => {
   try {
     const { email, clave } = req.body; // Obtener email y contraseña del cuerpo de la solicitud
@@ -25,6 +30,9 @@ export const Login = async (req, res) => {
   }
 };
 
+// InsertarAdministrador function to insert an administrator
+// Inserts an administrator into the database
+// need name, email and password
 export const InsertarAdministrador = async (req, res) => {
   try {
     const { nombre, email, clave } = req.body; // Obtener nombre, email y contraseña del cuerpo de la solicitud

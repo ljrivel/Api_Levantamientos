@@ -1,3 +1,4 @@
+// Purpose: Users routes to call users controllers
 import { Router } from 'express';
 
 import { Login, InsertarAdministrador } from '../controllers/users.controller';

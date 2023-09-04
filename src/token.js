@@ -1,6 +1,6 @@
 const crypto = require('crypto');
 
-// Longitud del token en bytes (128 caracteres en formato hexadecimal)
+// Longitud del token en bytes (64 caracteres en formato hexadecimal)
 const tokenLengthBytes = 32;
 
 // Generar un token único

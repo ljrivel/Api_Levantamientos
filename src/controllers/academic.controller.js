@@ -1,5 +1,9 @@
-import { getConnection } from '../ConnectionBD';
+import { getConnection } from '../ConnectionBD'; //import for connection
 
+// getPlandeEstudios function to get the study plan
+// Gets the study plan from the database
+// Returns the study plan
+// Returns an error message if the study plan was not found
 export const getPlanesEstudio = async (req, res) => {
   try {
     const connection = await getConnection();
@@ -19,6 +23,10 @@ export const getPlanesEstudio = async (req, res) => {
   }
 };
 
+// getListaCursos function to get the course list
+// Gets the course list from the database
+// Returns the course list
+// Returns an error message if the course list was not found
 export const getListaCursos = async (req, res) => {
   try {
     const connection = await getConnection();
@@ -38,6 +46,10 @@ export const getListaCursos = async (req, res) => {
   }
 };
 
+// getListaSedes function to get the headquarters list
+// Gets the headquarters list from the database
+// Returns the headquarters list
+// Returns an error message if the headquarters list was not found
 export const getListaSedes = async (req, res) => {
   try {
     const connection = await getConnection();
@@ -57,6 +69,11 @@ export const getListaSedes = async (req, res) => {
   }
 };
 
+// insertarPlanEstudios function to insert a study plan
+// Inserts a study plan into the database
+// need study plan name
+// Returns a message if the study plan was inserted correctly
+// Returns an error message if the study plan was not inserted correctly
 export const insertarPlanEstudios = async (req, res) => {
   try {
     const { nombrePlan } = req.body;

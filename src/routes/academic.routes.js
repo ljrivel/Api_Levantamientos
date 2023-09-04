@@ -1,3 +1,4 @@
+//Porpuse: academic routes to call academic controllers
 import { Router } from 'express';
 
 import {

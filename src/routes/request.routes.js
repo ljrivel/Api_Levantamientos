@@ -1,4 +1,5 @@
-import e, { Router } from 'express';
+// Purpose: request routes to call request controllers
+import { Router } from 'express';
 
 import {
   InsertRequest,
