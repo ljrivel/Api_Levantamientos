@@ -18,6 +18,7 @@ export const Login = async (req, res) => {
       res.status(401).json({ mensaje: 'Credenciales incorrectas' });
     }
     connection.release();
+    connection.destroy();
   } catch (error) {
     console.error('Error al verificar credenciales');
     res.status(500).json({ error: 'Error al verificar credenciales' });
@@ -43,6 +44,7 @@ export const InsertarAdministrador = async (req, res) => {
     }
 
     connection.release();
+    connection.destroy();
   } catch (error) {
     console.error('Error al insertar administrador', error);
     res.status(500).json({ error: 'Error al insertar administrador' });

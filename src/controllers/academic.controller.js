@@ -12,6 +12,7 @@ export const getPlanesEstudio = async (req, res) => {
       res.json(rows);
     }
     connection.release();
+    connection.destroy();
   } catch (error) {
     console.error('Error con el SP ListarPlanesEstudios', error);
     res.status(500).json({ error: 'Error con el SP ListarPlanesEstudios' });
@@ -30,6 +31,7 @@ export const getListaCursos = async (req, res) => {
       res.json(rows);
     }
     connection.release();
+    connection.destroy();
   } catch (error) {
     console.error('Error con el SP ListarCursos', error);
     res.status(500).json({ error: 'Error con el SP ListarCursos' });
@@ -48,6 +50,7 @@ export const getListaSedes = async (req, res) => {
       res.json(rows);
     }
     connection.release();
+    connection.destroy();
   } catch (error) {
     console.error('Error con el SP ListarSedes', error);
     res.status(500).json({ error: 'Error con el SP ListarSedes' });
@@ -70,6 +73,7 @@ export const insertarPlanEstudios = async (req, res) => {
     }
 
     connection.release();
+    connection.destroy();
   } catch (error) {
     console.error('Error al insertar plan de estudios', error);
     res.status(500).json({ error: 'Error al insertar plan de estudios' });

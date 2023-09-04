@@ -12,7 +12,7 @@ const getToken = async (req, res) => {
     const [rows] = await conn.execute('CALL VerificarTokenUnico(?)', [token]);
 
     conn.release();
-
+    conn.destroy();
     if (rows[0][0].mensaje === 'Token es único en la tabla Solicitud.') {
       return token;
     }
@@ -60,6 +60,7 @@ export const InsertRequest = async (req, res) => {
       ]
     );
     connection.release();
+    connection.destroy();
     if (rows.affectedRows === 1) {
       // La solicitud se insertó correctamente
       sendEmail(
@@ -113,6 +114,7 @@ export const InsertRequestRN = async (req, res) => {
       ]
     );
     connection.release();
+    connection.destroy();
     if (rows.affectedRows === 1) {
       // La solicitud se insertó correctamente
       sendEmail(
@@ -143,6 +145,7 @@ export const DeleteRequest = async (req, res) => {
       token,
     ]);
     connection.release();
+    connection.destroy();
     if (rows.affectedRows === 1) {
       // La solicitud se eliminó correctamente
       res.json({ mensaje: 'Solicitud eliminada correctamente' });
@@ -165,6 +168,7 @@ export const DeleteRequestRN = async (req, res) => {
       [carnet, token]
     );
     connection.release();
+    connection.destroy();
     if (rows.affectedRows === 1) {
       // La solicitud se eliminó correctamente
       res.json({ mensaje: 'Solicitud eliminada correctamente' });
