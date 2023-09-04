@@ -1,19 +1,21 @@
 
 
-POST http://localhost:3003/InsertRequest HTTP/1.1
+POST http://localhost:3001/InsertRequestRn HTTP/1.1
 content-type: application/json
 
 {   
       "carnet": 202077101,
-      "nombreCompleto": "Luis Rivel",
+      "nombreCompleto": "Juan Perez",
       "idPlan": 5,
       "email": "ljrivel16@gmail.com",
-      "comentario": "Quiero matricularme en el curso de programacion 1",
-      "idFormulario": 1,
+      "comentario": "Comentario",
+      "idFormulario": 2,
       "idSede": 1,
-      "motivoLevantamiento": "No me aparece el curso de programacion 1",
-      "idCursoLevanta": 1,
-      "idCursoMatricular": 1
+      "motivoLevantamiento": "Motivo",
+      "nivelRn": 1,
+      "cursosMXRNString": "1,2",
+      "cursosRNSrign": "1,2"
+
 }
 
 
