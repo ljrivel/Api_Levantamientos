@@ -64,13 +64,8 @@ export const insertarPlanEstudios = async (req, res) => {
     const [rows] = await connection.execute('CALL InsertarPlanEstudios(?)', [
       nombrePlan,
     ]);
-    if (rows.affectedRows === 1) {
-      // El administrador se insertó correctamente
-      res.json({ mensaje: 'Plan de estudios insertado correctamente' });
-    } else {
-      // El administrador no se insertó correctamente
-      res.status(401).json({ mensaje: 'Error al insertar plan de estudios' });
-    }
+
+    res.json({ mensaje: 'Plan de estudios insertado correctamente' });
 
     connection.release();
     connection.destroy();

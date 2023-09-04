@@ -61,18 +61,15 @@ export const InsertRequest = async (req, res) => {
     );
     connection.release();
     connection.destroy();
-    if (rows.affectedRows === 1) {
-      // La solicitud se insertó correctamente
-      sendEmail(
-        email,
-        'Solicitud de levantamiento',
-        'Se ha solicitado un levantamiento, su token es: ' + token
-      );
-      res.json({ mensaje: 'Solicitud insertada correctamente' });
-    } else {
-      // La solicitud no se insertó correctamente
-      res.status(401).json({ mensaje: 'Error al insertar solicitud' });
-    }
+    console.log(rows);
+
+    // La solicitud se insertó correctamente
+    sendEmail(
+      email,
+      'Solicitud de levantamiento',
+      'Se ha solicitado un levantamiento, su token es: ' + token
+    );
+    res.json({ mensaje: 'Solicitud insertada correctamente' });
   } catch (error) {
     console.error('Error al insertar solicitud', error);
     res.status(500).json({ error: 'Error al insertar solicitud' });
@@ -115,18 +112,13 @@ export const InsertRequestRN = async (req, res) => {
     );
     connection.release();
     connection.destroy();
-    if (rows.affectedRows === 1) {
-      // La solicitud se insertó correctamente
-      sendEmail(
-        email,
-        'Solicitud de levantamiento',
-        'Se ha solicitado un levantamiento, su token es: ' + token
-      );
-      res.json({ mensaje: 'Solicitud insertada correctamente' });
-    } else {
-      // La solicitud no se insertó correctamente
-      res.status(401).json({ mensaje: 'Error al insertar solicitud' });
-    }
+    // La solicitud se insertó correctamente
+    sendEmail(
+      email,
+      'Solicitud de levantamiento',
+      'Se ha solicitado un levantamiento, su token es: ' + token
+    );
+    res.json({ mensaje: 'Solicitud insertada correctamente' });
   } catch (error) {
     console.error('Error al insertar solicitud', error);
     res.status(500).json({ error: 'Error al insertar solicitud' });
@@ -146,13 +138,8 @@ export const DeleteRequest = async (req, res) => {
     ]);
     connection.release();
     connection.destroy();
-    if (rows.affectedRows === 1) {
-      // La solicitud se eliminó correctamente
-      res.json({ mensaje: 'Solicitud eliminada correctamente' });
-    } else {
-      // La solicitud no se eliminó correctamente
-      res.status(401).json({ mensaje: 'Error al eliminar solicitud' });
-    }
+
+    res.json({ mensaje: 'Solicitud eliminada correctamente' });
   } catch (error) {
     console.error('Error al eliminar solicitud');
     res.status(500).json({ error: 'Error al eliminar solicitud' });
@@ -169,13 +156,8 @@ export const DeleteRequestRN = async (req, res) => {
     );
     connection.release();
     connection.destroy();
-    if (rows.affectedRows === 1) {
-      // La solicitud se eliminó correctamente
-      res.json({ mensaje: 'Solicitud eliminada correctamente' });
-    } else {
-      // La solicitud no se eliminó correctamente
-      res.status(401).json({ mensaje: 'Error al eliminar solicitud' });
-    }
+
+    res.json({ mensaje: 'Solicitud eliminada correctamente' });
   } catch (error) {
     console.error('Error al eliminar solicitud');
     res.status(500).json({ error: 'Error al eliminar solicitud' });

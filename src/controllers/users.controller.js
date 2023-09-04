@@ -35,13 +35,8 @@ export const InsertarAdministrador = async (req, res) => {
       [nombre, email, clave]
     );
 
-    if (rows.affectedRows === 1) {
-      // El administrador se insertó correctamente
-      res.json({ mensaje: 'Administrador insertado correctamente' });
-    } else {
-      // El administrador no se insertó correctamente
-      res.status(401).json({ mensaje: 'Error al insertar administrador' });
-    }
+    // El administrador se insertó correctamente
+    res.json({ mensaje: 'Administrador insertado correctamente' });
 
     connection.release();
     connection.destroy();
