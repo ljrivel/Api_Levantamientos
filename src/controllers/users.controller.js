@@ -10,7 +10,7 @@ export const Login = async (req, res) => {
       [email, clave]
     );
 
-    if (rows[0].length === 1) {
+    if (rows[0].length >= 1) {
       // Las credenciales son válidas
       res.json(rows);
     } else {
@@ -19,7 +19,7 @@ export const Login = async (req, res) => {
     }
     connection.release();
   } catch (error) {
-    console.error('Error al verificar credenciales', error);
+    console.error('Error al verificar credenciales');
     res.status(500).json({ error: 'Error al verificar credenciales' });
   }
 };

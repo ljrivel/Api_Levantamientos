@@ -1,10 +1,10 @@
 import mysql from 'mysql2/promise';
 
 const dbConfig = {
-  host: 'us-cdbr-east-05.cleardb.net',
-  user: 'b7af72ef51bc8c',
-  password: 'bb6d67f2',
-  database: 'heroku_d23e98632d70552',
+  host: 'sql9.freemysqlhosting.net',
+  user: 'sql9644232',
+  password: 'mcXUBpmG4U',
+  database: 'sql9644232',
 };
 
 export async function getConnection() {

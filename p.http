@@ -1,10 +1,17 @@
-POST http://localhost:3001/InsertarAdministrador HTTP/1.1
+POST http://localhost:3003/InsertRequest HTTP/1.1
 content-type: application/json
 
 {   
-    "nombre": "Luis",
-    "email": "lj@gmail.com",
-    "clave": "123456"
+      "carnet": 202077101,
+      "nombreCompleto": "Luis Rivel",
+      "idPlan": "1",
+      "email": "ljrivel16@gmail.com",
+      "comentario": "Quiero matricularme en el curso de programacion 1",
+      "idFormulario": "1",
+      "idSede": "1",
+      "motivoLevantamiento": "No me aparece el curso de programacion 1",
+      "idCursoLevanta": "1",
+      "idCursoMatricular": "1"
 }
 
 

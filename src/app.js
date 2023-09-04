@@ -4,6 +4,7 @@ import cors from 'cors';
 
 import userRoutes from './routes/users.routes';
 import academicRoutes from './routes/academic.routes';
+import requestRoutes from './routes/request.routes';
 
 const app = express();
 
@@ -14,5 +15,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 app.use(userRoutes);
 app.use(academicRoutes);
+app.use(requestRoutes);
 
 export default app;
