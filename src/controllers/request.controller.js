@@ -218,3 +218,103 @@ export const DeleteRequestRN = async (req, res) => {
     res.status(500).json({ error: 'Error al eliminar solicitud' });
   }
 };
+
+export const GetRequestsRN = async (req, res) => {
+  try {
+    const { id } = req.body;
+    const connection = await getConnection();
+    const [rows] = await connection.execute(
+      'CALL ObtenerSolicitudesRNDeFormulario(?)',
+      [id]
+    );
+    connection.release();
+    connection.destroy();
+    res.json(rows[0]);
+  } catch (error) {
+    console.error('Error al obtener solicitudes RN');
+    res.status(500).json({ error: 'Error al obtener solicitudes' });
+  }
+};
+
+export const GetRequestsNormal = async (req, res) => {
+  try {
+    const { id } = req.body;
+    const connection = await getConnection();
+    const [rows] = await connection.execute(
+      'CALL ObtenerSolicitudReqDeFormulario(?)',
+      [id]
+    );
+    connection.release();
+    connection.destroy();
+    res.json(rows[0]);
+  } catch (error) {
+    console.error('Error al obtener solicitudes');
+    res.status(500).json({ error: 'Error al obtener solicitudes' });
+  }
+};
+
+export const GetRequests = async (req, res) => {
+  try {
+    const connection = await getConnection();
+    const [rows] = await connection.execute(
+      'CALL ObtenerSolicitudReqDeSolicitud()'
+    );
+    connection.release();
+    connection.destroy();
+    res.json(rows[0]);
+  } catch (error) {
+    console.error('Error al obtener solicitudes');
+    res.status(500).json({ error: 'Error al obtener solicitudes' });
+  }
+};
+
+export const UpdateSolicitud = async (req, res) => {
+  try {
+    const { idSolicitud, estado, comentario } = req.body;
+    const connection = await getConnection();
+    const [rows] = await connection.execute(
+      'CALL ActualizarEstadoSolicitud(?,?,?)',
+      [idSolicitud, estado, comentario]
+    );
+    connection.release();
+    connection.destroy();
+    res.json(rows[0]);
+  } catch (error) {
+    console.error('Error al obtener solicitudes');
+    res.status(500).json({ error: 'Error al obtener solicitudes' });
+  }
+};
+
+export const UpdateSolicitudNotificacion = async (req, res) => {
+  try {
+    const { idSolicitud, notificado } = req.body;
+    const connection = await getConnection();
+    const [rows] = await connection.execute(
+      'CALL ActualizarEstadoSolicitudNotificacion(?,?)',
+      [idSolicitud, notificado]
+    );
+    connection.release();
+    connection.destroy();
+    res.json(rows[0]);
+  } catch (error) {
+    console.error('Error al obtener solicitudes');
+    res.status(500).json({ error: 'Error al obtener solicitudes' });
+  }
+};
+
+export const ObtenerSolicitudesRNPorId = async (req, res) => {
+  try {
+    const { idSolicitud } = req.body;
+    const connection = await getConnection();
+    const [rows] = await connection.execute(
+      'CALL ObtenerSolicitudesRNDeSolicitud(?)',
+      [idSolicitud]
+    );
+    connection.release();
+    connection.destroy();
+    res.json(rows[0]);
+  } catch (error) {
+    console.error('Error al obtener solicitudes');
+    res.status(500).json({ error: 'Error al obtener solicitudes' });
+  }
+};
