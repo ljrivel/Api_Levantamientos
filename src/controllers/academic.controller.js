@@ -444,3 +444,17 @@ export const ActualizarFormulario = async (req, res) => {
     res.status(500).json({ error: 'Error al actualizar formulario' });
   }
 };
+
+export const getFormularios = async (req, res) => {
+  try {
+    const connection = await getConnection();
+    const [rows] = await connection.execute('CALL SeleccionarFormularios()');
+    res.json(rows);
+
+    connection.release();
+    connection.destroy();
+  } catch (error) {
+    console.error('Error al leer formularios', error);
+    res.status(500).json({ error: 'Error al leer formularios' });
+  }
+};

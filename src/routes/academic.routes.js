@@ -26,6 +26,7 @@ import {
   DeleteFormulario,
   UpdateCurso,
   getFormularioPeriodoPorId,
+  getFormularios,
 } from '../controllers/academic.controller';
 
 const router = Router();
@@ -54,5 +55,6 @@ router.post('/ActualizarFormulario', ActualizarFormulario);
 router.post('/DeleteFormulario', DeleteFormulario);
 router.post('/UpdateCurso', UpdateCurso);
 router.post('/GetFormularioPeriodoPorId', getFormularioPeriodoPorId);
+router.get('/GetFormularios', getFormularios);
 
 export default router;
